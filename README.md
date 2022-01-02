@@ -1,12 +1,12 @@
 # Pegasus Epic Noir Theme
 
-<img src="https://raw.githubusercontent.com/dragoonDorise/RP-epic-noir/main/screenshots/hero.jpg">
+<img src="https://github.com/dragoonDorise/RP-epic-noir/blob/main/screenshots/hero.jpg?raw=true">
 
 Pegasus Frontend Theme optimized for the Retroid Pocket 2 Screen. You need to have Pegasus installed in your Retroid Pocket
 
 **New! Now it's also compatible with 16:9 and 5:3 handhelds**
 
-<img src="https://raw.githubusercontent.com/dragoonDorise/RP-epic-noir/main/screenshots/hero-odin.jpg">
+<img src="https://github.com/dragoonDorise/RP-epic-noir/blob/main/screenshots/hero-odin.jpg?raw=true">
 
 ## Installing Pegasus on your handheld
 
@@ -44,8 +44,8 @@ You can also toggle the music with a press on the button Y, there are several so
 
 ## Game List Screen
 
-<img src="https://raw.githubusercontent.com/dragoonDorise/RP-epic-noir/main/screenshots/game-list.jpg">
-<img src="https://raw.githubusercontent.com/dragoonDorise/RP-epic-noir/main/screenshots/game-list-odin.jpg">
+<img src="https://github.com/dragoonDorise/RP-epic-noir/blob/main/screenshots/game-list.jpg?raw=true">
+<img src="https://github.com/dragoonDorise/RP-epic-noir/blob/main/screenshots/game-list-odin.jpg?raw=true">
 In this list you can see all the games in the System selected in the Home Screen, in this screen you can do several things by pressing different buttons:
 
 - A - Launchs the Game
@@ -58,7 +58,7 @@ In this list you can see all the games in the System selected in the Home Screen
 
 ### Search mode
 
-<img src="https://raw.githubusercontent.com/dragoonDorise/RP-epic-noir/main/screenshots/search.jpg">
+<img src="https://github.com/dragoonDorise/RP-epic-noir/blob/main/screenshots/search.jpg?raw=true">
 Just press R2 Twice, enter the text you want to search, press the hide keyboard key in the Android virtual Keyboard and then press Down in the Dpad to go back to the Game list and select the game you want. **Don't press the Enter key, it wont work**
 
 ## Thanks To
