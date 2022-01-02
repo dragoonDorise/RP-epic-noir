@@ -14,154 +14,16 @@ import QtQuick 2.12
           searchValue=''
           // header__search_input.focus = false
           // gameView.focus = true 
-          header.height=0 
-          header__search_input.text='Search...'
+         // header.height=0 
+         // header_list__search_input.text='Search...'
           navigate('HomePage');
           return;
       }  
       
     }
  
-    Rectangle {
-        id: header
-        color: headerCSS.background
-        width: headerCSS.width
-        height: headerCSS.height
-        anchors.top: parent.top
-        // visible:false
-        clip:true
-        
-        Rectangle{
-          id: header_inner
-          anchors.top: parent.top
-          anchors.left: parent.left
-          anchors.topMargin: 0
-          anchors.leftMargin: 20          
-          color:"transparent"
-          width:parent.width-40
-          height: 40
-          
-          Rectangle{
-            id: header__system
-            anchors.top: parent.top
-            anchors.left: parent.left
-            anchors.topMargin: 0
-            width:  40
-            height: 40  
-            color:"transparent"    
-            visible:false      
-            Image {
-                id: header__system_logo
-                width:parent.width
-                height: parent.width
-                fillMode: Image.PreserveAspectFit
-                //source: "../assets/images/systems/" + currentCollection.shortName + ".png"
-                source: "../assets/images/"+theme.system_icon
-                asynchronous: true
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.verticalCenter: parent.verticalCenter
-            }
-            
-            
-            Text{
-              text: currentCollection.name
-              anchors.left: header__system_logo.right
-              anchors.leftMargin: 12
-              color: theme.title
-              font.pixelSize: 22
-              anchors.verticalCenter: parent.verticalCenter
-              width:300       
-              elide: Text.ElideRight       
-            }
-          }    
-          
-          Rectangle{
-            id: header__filters
-            color:"transparent"
-            anchors.top: parent.top
-            anchors.right: parent.right
-            height: 32
-            width:parent.width
-            
-            Rectangle{
-              id: header__search
-              color:"white";
-              anchors.top: parent.top
-              anchors.topMargin: 10 
-              anchors.right: parent.right
-              width:parent.width
-              height: 30 
-              //anchors.verticalCenter: parent.verticalCenter                
-              border.color: theme.text
-              border.width:1
-              radius:2
-              visible:true
-              
-                Rectangle{
-                    id: header__search_button
-                    height:16
-                    width:16
-                    color:"#444"
-                    radius:20
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.right: parent.right 
-                    anchors.rightMargin: 6 
-                    visible: currentPage === 'ListPage' ? 1 : 0            
-                    Text{
-                         text:"Y"
-                         color:"white"                    
-                         anchors.verticalCenter: parent.verticalCenter
-                         anchors.horizontalCenter: parent.horizontalCenter
-                         font.pixelSize:8
-                    }
-                }              
-              
-                  TextInput{
-                      id:header__search_input
-                      text:"Search.."
-                      width:parent.width
-                      height: parent.height                   
-                      anchors.top: parent.top
-                      anchors.left: parent.left
-                      anchors.leftMargin: 6 
-                      anchors.topMargin: 8
-                      color: theme.text
-                      onTextEdited: {
-                          gameView.currentIndex = 0 //We move the highlight to the first item
-                          searchValue = header__search_input.text
-                          gameView.model = searchGames
-                      }
-                      
-                        Keys.onPressed: {
-                          if (api.keys.isAccept(event)) {
-                              navigate('ListPage');
-                              return;
-                          }  
-                          if (event.key == Qt.Key_Down) {
-                              navigate('ListPage');  
-                              return;
-                          }
-                          // if (api.keys.isCancel(event)) {
-                          //     searchValue=''
-                          //     header__search_input.text='Search...'                            
-                          //     gameView.focus = true                           
-                          //     return;
-                          // }  
-                          
-                          
-                        }
-                       
-                  }
-                            // searchValue = "ninja"
-                            // gameView.model = searchGames              
-              
-            }              
-          }      
-            
-
-          
-        }
-        
+    HeaderList{
+      id: header_list
     }
        
     Rectangle {
@@ -169,8 +31,8 @@ import QtQuick 2.12
         color: mainCSS.background
         width: wrapperCSS.width
         height: mainCSS.height
-        anchors.top: header.bottom
-        
+        anchors.top: parent.top
+        anchors.topMargin: headerCSS.height+60
         Rectangle {
             id: games
             color: "transparent"
@@ -295,18 +157,36 @@ import QtQuick 2.12
 
                           Rectangle{
                               id: game_selected
-                              width:game_title.width
-                              height:game_title.height
-                              color:"#936a8e"
+                              width:games.width
+                              height:game_title.height+10
+                              anchors.top: parent.top
+                              anchors.topMargin: -4
+                              color:"#272c35"
                               visible: selected ? true : false                          
-                          }                
+                          }     
+                          
+                          Text {
+                            id: game_title_selected
+                            text: modelData.title     
+                            anchors.left: parent.left
+                            anchors.leftMargin: 12
+                            color: "white"
+                           
+                            font.family: bodyFont.name
+                            font.pixelSize: 20
+                            verticalAlignment: Text.AlignVCenter
+                            elide: Text.ElideRight
+                            visible: selected ? true : false 
+                            z:2
+                          }                                     
                           
                           Text {
                             id: game_title
                               text: modelData.title                
-                              // white, 20px, condensed font
-                              color: "white"
-                              //font.family: globalFonts.condensed
+                              anchors.left: parent.left
+                              anchors.leftMargin: 12
+                              color: "#434643"
+                              font.family: bodyFont.name
                               font.pixelSize: 20
                               verticalAlignment: Text.AlignVCenter
                               elide: Text.ElideRight
@@ -349,7 +229,7 @@ import QtQuick 2.12
           
           Image {
               id: game_details_logo
-              width: 200    
+              width: parent.width    
               sourceSize { width: 200; }                                    
               fillMode: Image.PreserveAspectCrop
               source: "../assets/images/logos/"+currentCollection.shortName+".png"
@@ -364,8 +244,8 @@ import QtQuick 2.12
           
           Image {
               id: game_screenshot
-              width: 250    
-              height: 250
+              width: parent.width    
+             
               fillMode: Image.PreserveAspectFit
               anchors.top:game_details_logo.bottom
               anchors.right: parent.right

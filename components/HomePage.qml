@@ -31,7 +31,8 @@ import QtQuick 2.12
                 anchors.right: parent.right
                 anchors.top: systems.top
                 anchors.bottom: parent.bottom
-                model: api.collections
+                //model: api.collections
+                model: allCollections
                 delegate: systemsDelegate  
                 orientation: ListView.Vertical
 
@@ -93,10 +94,10 @@ import QtQuick 2.12
                                 anchors.left : parent.left
                                 anchors.leftMargin: 64;  
                                 z:20
-                                
+                                visible: currentPage === 'HomePage' ? 1 : 0 ;
                                 Text {
                                     id: systems__item_detail
-                                    text: systemDetail[modelData.shortName]+music[api.memory.get('musicArray')]
+                                    text: systemDetail[modelData.shortName]
                                     anchors.top: parent.top
                                     anchors.left: parent.left
                                     anchors.topMargin: 86;  
@@ -108,7 +109,7 @@ import QtQuick 2.12
                                     width: systems.width/2
                                   //  height: vpx(270)
                                     opacity: systems__item_container.ListView.isCurrentItem ? 1 : 0
-                                 
+                                    visible : systemDetail[modelData.shortName] == undefined ? 0: 1
                                     wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                                 }
                                 

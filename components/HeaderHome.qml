@@ -7,11 +7,10 @@ import QtQuick 2.12
       height: headerCSS.height-headerHeightCorrection // Zoom option
       anchors.top: parent.top      
       z:99
-      
+      visible: currentPage === 'HomePage' ? 1 : 0 ;
       Rectangle{
         id: header__battery
-        width:64
-        height:20
+        width:84
         color:"transparent"
         anchors.right: parent.right
         anchors.top: parent.top
@@ -21,7 +20,6 @@ import QtQuick 2.12
         Text{
             id: header__battery_number
             text: api.device.batteryPercent+" %"    
-            width:10 
             anchors { top: parent.top }   
             color: theme.title
             font.pixelSize: 18
@@ -36,7 +34,8 @@ import QtQuick 2.12
               source: "../assets/icons/battery.png"
               asynchronous: true      
               anchors { top: parent.top }   
-              anchors.right: parent.right
+              anchors.left: header__battery_number.right
+              anchors.leftMargin: 6
               z:3999
               
          }        

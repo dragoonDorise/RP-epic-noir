@@ -17,7 +17,7 @@ FocusScope {
   Component.onCompleted: homeMusic()
   
   //System index
-  property var currentCollectionIndex : 0
+  property var currentCollectionIndex : 8
   property var currentCollection: allCollections[currentCollectionIndex]
   
   //Games index
@@ -46,7 +46,7 @@ FocusScope {
   property var currentPage : 'HomePage';
   
   property var themeLight : {
-      "background": "#ebebeb",
+      "background": "#000",
       "accent": "#10adc5",
       "buttons": "white",
       "text":"#fff",
@@ -56,7 +56,7 @@ FocusScope {
   } 
   
   property var themeDark : {
-    "background": "#222222",
+    "background": "#000",
     "accent": "#10adc5",
     "buttons": "#4a4a4a",
     "text":"#fff",
@@ -66,8 +66,9 @@ FocusScope {
   }
   
   property var systemDescription:{
-    "allgames": "Access and quickly play every single game across the entire library",
-    "favorites": "Access and quickly play your favorite games across the entire library",  
+    "all-allgames": "Access and quickly play every single game across the entire library",
+    "all-favorites": "Access and quickly play your favorite games across the entire library",  
+    "all-lastplayed": "Access and quickly play your favorite games across the entire library",  
     "atari2600": "The Atari 2600 is credited with popularizing the use of microprocessor-based hardware and ROM cartridges containing game code",
     "atasrilynx":"The Lynx was the world's first handheld electronic game with a color LCD and was also notable for its advanced graphics and ambidextrous layout",
     "doom": "Doom is a 1993 first-person shooter (FPS) game developed by id Software for MS-DOS. Players assume the role of a space marine, popularly known as Doomguy",
@@ -519,7 +520,8 @@ function playMusic(name){
     
     
     Components.HomePage {
-      visible: currentPage === 'HomePage' ? 1 : 0 ;
+      //visible: currentPage === 'HomePage' ? 1 : 0 ;
+      opacity: currentPage === 'HomePage' ? 1 : 0.3 ;
     }
     
     Components.ListPage {
