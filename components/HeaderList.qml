@@ -25,7 +25,7 @@ Rectangle {
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.topMargin: 0
-        width:  330
+        width:  vpx(330)
         height: parent.height  
         color:"transparent"    
         anchors.leftMargin: 20             
@@ -38,7 +38,7 @@ Rectangle {
           font.bold:true
           font.pixelSize: 24
           anchors.verticalCenter: parent.verticalCenter
-          width:300       
+          width:vpx(300)
           elide: Text.ElideRight       
         }
         Rectangle{
@@ -61,7 +61,7 @@ Rectangle {
         anchors.top: parent.top
         anchors.left: header_list__system.right
         height: parent.height
-        width:800
+        width: aspectRatio === 169 ? vpx(800) : vpx(700)
         
         Rectangle{
           id: header_list__search
@@ -152,13 +152,13 @@ Rectangle {
       //Bateria
       Rectangle{
         id: header_list__battery
-        width:64
+        width:vpx(64)
         height:parent.height
         color:"transparent"
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.topMargin: 28
-        anchors.rightMargin: 0
+        anchors.rightMargin: aspectRatio === 169 ? 0 : 8
         
         Text{
           id: header_list__battery_number

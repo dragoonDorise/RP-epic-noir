@@ -6,7 +6,7 @@ Pegasus Frontend Theme optimized for the Retroid Pocket 2 Screen. You need to ha
 
 **New! Now it's also compatible with 16:9 and 5:3 handhelds**
 
-<img src="https://raw.githubusercontent.com/dragoonDorise/RP-epic-noir/main/screenshots/RG552.jpg">
+<img src="https://raw.githubusercontent.com/dragoonDorise/RP-epic-noir/main/screenshots/hero-odin.jpg">
 
 ## Installing Pegasus on your handheld
 
@@ -44,6 +44,8 @@ You can also toggle the music with a press on the button Y, there are several so
 
 ## Game List Screen
 
+<img src="https://raw.githubusercontent.com/dragoonDorise/RP-epic-noir/main/screenshots/game-list.jpg">
+<img src="https://raw.githubusercontent.com/dragoonDorise/RP-epic-noir/main/screenshots/game-list-odin.jpg">
 In this list you can see all the games in the System selected in the Home Screen, in this screen you can do several things by pressing different buttons:
 
 - A - Launchs the Game

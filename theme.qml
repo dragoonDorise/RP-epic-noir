@@ -149,8 +149,8 @@ property var systemDetail:{
   property var theme : api.memory.get('theme') === 'themeLight' ? themeLight : themeDark ;
   
   property var searchValue: '';
-  property var screenRatio : root.height === 480 ? 1.98 : 1.88
-  property var aspectRatio : root.width / root.height < 1.7 ? 43 : 169
+  property var screenRatio : root.height < 481 ? 1.98 : 1.88
+  property var aspectRatio : root.width / root.height < 1.34 ? 43 : 169
 
 
   property var itemsNumber : aspectRatio === 43 ? 3 : 4
