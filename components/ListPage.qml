@@ -272,6 +272,7 @@ import QtQuick 2.12
               font.pixelSize: 20
               verticalAlignment: Text.AlignVCenter
               elide: Text.ElideRight
+              visible: currentCollection.games.get(gameView.currentIndex).description ? true : false
             }  
             
             Rectangle{
@@ -282,6 +283,7 @@ import QtQuick 2.12
               height:1
               color: "#646363"
               opacity:0.4
+              visible: currentCollection.games.get(gameView.currentIndex).description ? true : false
             }        
                       
             Text{
@@ -290,6 +292,7 @@ import QtQuick 2.12
               anchors.left: parent.left
               anchors.right: parent.right
               anchors.topMargin:10
+              visible: currentCollection.games.get(gameView.currentIndex).description ? true : false
               
               //height:parent.height
               
