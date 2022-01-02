@@ -14,7 +14,7 @@ FocusScope {
   //
   //  
   
-  Component.onCompleted: homeSound.play()
+  Component.onCompleted: homeMusic()
   
   //System index
   property var currentCollectionIndex : 0
@@ -245,6 +245,152 @@ property var systemDetail:{
     */
   }
   
+  property var music :[
+    "Silence",
+    "Arcadia",
+    "Diotic",
+    "Dreamlines",
+    "Nightwanderer",
+    "Outlander",
+    "Tapes",
+    "Vice",  
+    "Laundromat",
+    "Pawnshop",
+    "Playertwo",
+    "VYBES",
+    "Virtualfuture",
+  ]
+
+  
+function changeMusic(){
+  if (api.memory.get('musicArray') == undefined ){
+    api.memory.set('musicArray',0);
+  }
+  api.memory.set('musicArray',api.memory.get('musicArray')+1);
+  if (api.memory.get('musicArray') == 12 ){
+    api.memory.set('musicArray',0);
+  }
+  playMusic(music[api.memory.get('musicArray')])
+}
+
+
+function homeMusic(){
+  api.memory.set('musicArray',8);
+  playMusic(music[api.memory.get('musicArray')])
+}
+  
+function playMusic(name){
+  switch(name){
+    case "Arcadia":
+      arcadiaMusic.play()
+      break;
+    case "Diotic":
+      dioticMusic.play()
+      break;
+    case "Dreamlines":
+      dreamlinesMusic.play()
+      break;
+    case "Nightwanderer":
+      nightwandererMusic.play()
+      break;
+    case "Outlander":
+      outlanderMusic.play()
+      break;
+    case "Tapes":
+      tapesMusic.play()
+      break;
+    case "Vice":
+      viceMusic.play()
+      break;
+    case "Laundromat":
+      laundromatMusic.play()
+      break;
+    case "Pawnshop":
+      pawnshopMusic.play()
+      break;
+    case "Playertwo":
+      playertwoMusic.play()
+      break;
+    case "VYBES":
+      vybesMusic.play()
+      break;
+    case "Virtualfuture":
+      virtualfutureMusic.play()
+      break;
+    case "Silence":
+      virtualfutureMusic.stop()
+      break;
+      
+    default:
+      laundromatMusic.play()      
+      break;
+  };
+}  
+  
+  //Music  
+
+  Audio {
+    id: arcadiaMusic
+    source: "assets/music/Alumo - Arcadia Sunset.mp3"
+    volume: 0.2
+  }   
+    
+  Audio {
+    id: dioticMusic
+    source: "assets/music/Alumo - Diotic.mp3"
+    volume: 0.2
+  }
+  Audio {
+    id: dreamlinesMusic
+    source: "assets/music/Alumo - Dreamlines.mp3"
+    volume: 0.2
+  }
+  Audio {
+    id: nightwandererMusic
+    source: "assets/music/Alumo - Night Wanderer.mp3"
+    volume: 0.2
+  }
+  Audio {
+    id: outlanderMusic
+    source: "assets/music/Alumo - Outlander.mp3"
+    volume: 0.2
+  }
+  Audio {
+    id: tapesMusic
+    source: "assets/music/Alumo - Tapes.mp3"
+    volume: 0.2
+  }
+  Audio {
+    id: viceMusic
+    source: "assets/music/Alumo - Vice.mp3"
+    volume: 0.2
+  }
+  Audio {
+    id: laundromatMusic
+    source: "assets/music/Bolt Action - Laundromat.mp3"
+    volume: 0.2
+  }
+  Audio {
+    id: pawnshopMusic
+    source: "assets/music/Bolt Action - Pawn Shop.mp3"
+    volume: 0.2
+  }
+  Audio {
+    id: playertwoMusic
+    source: "assets/music/Bolt Action - Player Two.mp3"
+    volume: 0.2
+  }
+  Audio {
+    id: vybesMusic
+    source: "assets/music/Bolt Action - v y b e s.mp3"
+    volume: 0.2
+  }
+  Audio {
+    id: virtualfutureMusic
+    source: "assets/music/Bolt Action - Virtual Future.mp3"
+    volume: 0.2
+  }
+    
 
   
   //Sounds

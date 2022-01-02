@@ -113,7 +113,7 @@ import QtQuick 2.12
                     radius:20
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.right: parent.right  
-                    opacity:0            
+                              
                     Text{
                          text:"Y"
                          color:"white"                    
@@ -122,7 +122,7 @@ import QtQuick 2.12
                          font.pixelSize: 12*screenRatio
                     }
                     Text{
-                         text:"Zoom"
+                         text:"Music"
                          color: theme.text                       
                          anchors.verticalCenter: parent.verticalCenter
                          anchors.left: parent.right

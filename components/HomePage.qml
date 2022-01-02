@@ -13,7 +13,7 @@ import QtQuick 2.12
         color: mainCSS.background
         width: wrapperCSS.width
         height: mainCSS.height + headerHeightCorrection  // Zoom option
-        anchors.top: patent.top
+        anchors.top: parent.top
         
         
         Rectangle{
@@ -71,7 +71,7 @@ import QtQuick 2.12
                             }      
                             if (api.keys.isFilters(event)) {
                                 event.accepted = true;
-                                toggleZoom();
+                                changeMusic();
                                 return;
                             }  
                                     
@@ -96,7 +96,7 @@ import QtQuick 2.12
                                 
                                 Text {
                                     id: systems__item_detail
-                                    text: systemDetail[modelData.shortName]
+                                    text: systemDetail[modelData.shortName]+music[api.memory.get('musicArray')]
                                     anchors.top: parent.top
                                     anchors.left: parent.left
                                     anchors.topMargin: 86;  
