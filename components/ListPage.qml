@@ -28,19 +28,20 @@ import QtQuick 2.12
        
     Rectangle {
         id: main
-        color: mainCSS.background
+        //color: mainCSS.background
+        color: "transparent"
         width: wrapperCSS.width
-        height: mainCSS.height
+        height: mainCSS.height-104
         anchors.top: parent.top
         anchors.topMargin: headerCSS.height+60
         Rectangle {
             id: games
             color: "transparent"
-            width: parent.width*0.5
+            width: parent.width*0.45
             anchors.left: parent.left
             anchors.top: parent.top
             anchors.topMargin: 20
-            height:parent.height-20-anchors.topMargin
+            height:parent.height-anchors.topMargin-footer.height
             ListView {
                 id: gameView
                 width: parent.width;
@@ -154,7 +155,7 @@ import QtQuick 2.12
                         color:"transparent"
                         height: parent.height
                         width:parent.width
-
+                        
                           Rectangle{
                               id: game_selected
                               width:games.width
@@ -222,47 +223,132 @@ import QtQuick 2.12
         Rectangle{
           id:game_details
           width: parent.width*0.5
+          height:parent.height-footer.height
           color:"transparent"
-          anchors.left:games.right
+          anchors.right:parent.right
           anchors.top: parent.top
-          anchors.bottom: parent.bottom
-          
-          Image {
-              id: game_details_logo
-              width: parent.width    
-              sourceSize { width: 200; }                                    
-              fillMode: Image.PreserveAspectCrop
-              source: "../assets/images/logos/"+currentCollection.shortName+".png"
-              asynchronous: true      
-              anchors.top: parent.top   
-              anchors.right: parent.right  
-              anchors.topMargin: 40
-              anchors.rightMargin: 20          
-              
-              visible: currentPage === 'ListPage' ? true : false ;
-          }     
-          
+          //anchors.bottom: parent.bottom
+
           Image {
               id: game_screenshot
               width: parent.width    
-             
+              height:parent.height*0.6
               fillMode: Image.PreserveAspectFit
-              anchors.top:game_details_logo.bottom
+              anchors.top:parent.top
               anchors.right: parent.right
-              anchors.topMargin: 20
+              anchors.topMargin: 0
               anchors.rightMargin: 20          
 
               asynchronous: true    
               source: {
                   if (currentCollection.shortName !== "android") {
-                      if (currentCollection.games.get(gameView.currentIndex).assets.screenshots[0]) {
-                          return currentCollection.games.get(gameView.currentIndex).assets.screenshots[0]
+                      if (currentCollection.games.get(gameView.currentIndex).assets.boxFront) {
+                          return currentCollection.games.get(gameView.currentIndex).assets.boxFront
                       }
                       return ""
                   }
                   return ""
               }                                                               
           }      
+          
+          Rectangle{
+            id:game__texts
+            //width: parent.width;
+            height:parent.height*0.38
+            color:"transparent"
+            anchors.top: game_screenshot.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.leftMargin:10
+            anchors.rightMargin:10  
+            clip: true
+            
+            Text{
+              id:game__title_desc
+              anchors.top: game_screenshot.bottom
+              text:'Description'
+              color: "white"
+              font.family: bodyFont.name
+              font.pixelSize: 20
+              verticalAlignment: Text.AlignVCenter
+              elide: Text.ElideRight
+            }  
+            
+            Rectangle{
+              id: game__title_desc_border
+              anchors.top: game__title_desc.bottom
+              anchors.topMargin:10
+              width: parent.width;
+              height:1
+              color: "#646363"
+              opacity:0.4
+            }        
+                      
+            Text{
+              id:game__desc
+              anchors.top: game__title_desc_border.bottom
+              anchors.left: parent.left
+              anchors.right: parent.right
+              anchors.topMargin:10
+              
+              //height:parent.height
+              
+              text:currentCollection.games.get(gameView.currentIndex).description
+              color: "#646363"
+              font.family: bodyFont.name
+              font.pixelSize: 16
+              wrapMode:Text.WordWrap
+             // verticalAlignment: Text.AlignVCenter
+              //elide: Text.ElideRight
+            }  
+            
+            
+          }
+          
+                    
+       //   Rectangle{
+       //     id:pepito
+       //     width: parent.width;
+       //     height:100
+       //     color:"purple"
+       //     anchors.top: game_screenshot.bottom
+       //     
+       //   }
+       //   
+       //   Text{
+       //     id:game__title_desc
+       //     anchors.top: game_screenshot.bottom
+       //     text:'Description'
+       //     color: "white"
+       //     font.family: bodyFont.name
+       //     font.pixelSize: 20
+       //     verticalAlignment: Text.AlignVCenter
+       //     elide: Text.ElideRight
+       //   }  
+       //   
+       //   Rectangle{
+       //     id: game__title_desc_border
+       //     anchors.top: game__title_desc.bottom
+       //     anchors.topMargin:10
+       //     width: parent.width;
+       //     height:1
+       //     color: "#646363"
+       //     opacity:0.4
+       //   }        
+       //             
+       //   Text{
+       //     id:game__desc
+       //     anchors.top: game__title_desc_border.bottom
+       //     anchors.topMargin:10
+       //     width: parent.width-100;
+       //     text:currentCollection.games.get(gameView.currentIndex).description
+       //     color: "#646363"
+       //     font.family: bodyFont.name
+       //     font.pixelSize: 16
+       //     verticalAlignment: Text.AlignVCenter
+       //     elide: Text.ElideRight
+       //   }  
+          
           
           
           

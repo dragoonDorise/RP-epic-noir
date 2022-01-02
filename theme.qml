@@ -17,7 +17,7 @@ FocusScope {
   Component.onCompleted: homeMusic()
   
   //System index
-  property var currentCollectionIndex : 8
+  property var currentCollectionIndex : 0
   property var currentCollection: allCollections[currentCollectionIndex]
   
   //Games index
