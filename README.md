@@ -44,8 +44,8 @@ You can also toggle the music with a press on the button Y, there are several so
 
 ## Game List Screen
 
-<img src="https://github.com/dragoonDorise/RP-epic-noir/blob/main/screenshots/game-list.jpg?raw=true">
-<img src="https://github.com/dragoonDorise/RP-epic-noir/blob/main/screenshots/game-list-odin.jpg?raw=true">
+<img src="https://github.com/dragoonDorise/RP-epic-noir/blob/main/screenshots/list-games.jpg?raw=true">
+<img src="https://github.com/dragoonDorise/RP-epic-noir/blob/main/screenshots/list-games-odin.jpg?raw=true">
 In this list you can see all the games in the System selected in the Home Screen, in this screen you can do several things by pressing different buttons:
 
 - A - Launchs the Game
