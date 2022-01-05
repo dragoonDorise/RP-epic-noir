@@ -16,7 +16,7 @@ Rectangle {
       anchors.topMargin: 0
       anchors.leftMargin: 0          
       color:"transparent"
-      width:parent.width-40
+      width:parent.width
       height: parent.height
       
       //Nombre          
@@ -25,7 +25,7 @@ Rectangle {
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.topMargin: 0
-        width:  vpx(330)
+        width:  vw(25.7)
         height: parent.height  
         color:"transparent"    
         anchors.leftMargin: 20             
@@ -61,7 +61,7 @@ Rectangle {
         anchors.top: parent.top
         anchors.left: header_list__system.right
         height: parent.height
-        width: aspectRatio === 169 ? vpx(800) : vpx(700)
+        width: parent.width-header_list__system.width-header_list__battery.width
         
         Rectangle{
           id: header_list__search
@@ -152,36 +152,48 @@ Rectangle {
       //Bateria
       Rectangle{
         id: header_list__battery
-        width:vpx(64)
+        width:120
         height:parent.height
         color:"transparent"
         anchors.right: parent.right
         anchors.top: parent.top
-        anchors.topMargin: 28
-        anchors.rightMargin: aspectRatio === 169 ? 0 : 8
-        
-        Text{
-          id: header_list__battery_number
-          text: api.device.batteryPercent+" %"    
-          anchors { top: parent.top }   
-          color: theme.title
-          font.pixelSize: 18
-          visible: headerHeightCorrection === 0 ? 1 : 0;
-        }      
-        
-        Image {
-            id: header_list__battery_icon
-            height: 22   
-            width: 30
-            fillMode: Image.PreserveAspectFit
-            source: "../assets/icons/battery.png"
-            asynchronous: true      
-            anchors { top: parent.top }   
-            anchors.left: header_list__battery_number.right
-            anchors.leftMargin: 6
-            z:3999
-            
-         }        
+        anchors.bottom: parent.bottom
+        anchors.topMargin: 0
+        anchors.rightMargin: 0
+            Rectangle{
+                id: header_list__battery_inner
+                anchors.centerIn: parent
+                anchors.right: parent.right
+                anchors.left: parent.left
+                height:50
+                width:parent.width/1.9
+                color:"transparent"
+                    Text{
+                      id: header_list__battery_number
+                      text: Math.floor(api.device.batteryPercent*100)+" %"        
+                      //anchors { top: parent.top }   
+                      color: theme.title
+                      font.pixelSize: 18
+                      visible: headerHeightCorrection === 0 ? 1 : 0;
+                      anchors.verticalCenter: parent.verticalCenter
+                    }      
+                    
+                    Image {
+                        id: header_list__battery_icon
+                        height: 22   
+                        width: 30
+                        fillMode: Image.PreserveAspectFit
+                        source: "../assets/icons/battery.png"
+                        asynchronous: true      
+                        //anchors { top: parent.top }   
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.left: header_list__battery_number.right
+                        anchors.leftMargin: 6
+                        z:3999
+                        
+                     }                      
+            }
+  
         }
         
         

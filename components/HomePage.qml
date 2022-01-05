@@ -92,7 +92,7 @@ import QtQuick 2.12
                                 height: main.height-50
                                 width: aspectRatio === 169 ? parent.width/2.2 : parent.width
                                 anchors.left : parent.left
-                                anchors.leftMargin: 64;  
+                                anchors.leftMargin: vw(5);  
                                 z:20
                                 visible: currentPage === 'HomePage' ? 1 : 0 ;
                                 Text {

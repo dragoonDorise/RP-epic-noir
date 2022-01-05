@@ -43,7 +43,7 @@ FocusScope {
   
   FontLoader { id: titleFont; source: "assets/fonts/BebasNeue.otf" }
   FontLoader { id: bodyFont; source: "assets/fonts/Acre.otf" }
-  property var currentPage : 'HomePage';
+  property var currentPage : 'ListPage';
   
   property var themeLight : {
       "background": "#000",
@@ -149,9 +149,33 @@ property var systemDetail:{
   property var theme : api.memory.get('theme') === 'themeLight' ? themeLight : themeDark ;
   
   property var searchValue: '';
-  property var screenRatio : root.height < 481 ? 1.98 : 1.88
-  property var aspectRatio : root.width / root.height < 1.34 ? 43 : 169
+  property var screenRatio: root.height < 481 ? 1.98 : 1.88;
+  property var screenProportion: root.width / root.height;
+  
 
+  function calculateAspectRatio(screenProportion){
+  switch(screenProportion){
+    case screenProportion < 1.34:
+      return 43;
+      break;
+    case screenProportion < 1.666666666666668:
+      return 53;
+      break;
+    default:
+      return 169
+      break;
+  }
+    
+    
+  }
+  
+  property var aspectRatio : calculateAspectRatio(screenProportion)
+  
+ //  : root.width / root.height < 1.34 ? 43 : 169
+//
+ // 4:3-> 1.333333333333333
+ // 5:3-> 1.666666666666667
+ // 16:9-> 1.777777777777778
 
   property var itemsNumber : aspectRatio === 43 ? 3 : 4
   
@@ -188,8 +212,22 @@ property var systemDetail:{
       
   }    
   
-  
-
+  //Percentage calculator
+  function vw(pixel){
+    //in 100
+    //out 1280
+    switch (aspectRatio) {
+        case 43:
+        return vpx(pixel*12.8)
+        break;
+        case 169:
+        return vpx(pixel*12.8)
+        break;
+        default:
+        return vpx(pixel*12.8)
+        break;
+    }
+  }
   
   function toggleDarkMode(){
     if(theme === themeLight){
