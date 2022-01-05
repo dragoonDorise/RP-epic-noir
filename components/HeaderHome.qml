@@ -19,7 +19,7 @@ import QtQuick 2.12
         
         Text{
             id: header__battery_number
-            text: api.device.batteryPercent+" %"    
+            text: Math.floor(api.device.batteryPercent*100)+" %"    
             anchors { top: parent.top }   
             color: theme.title
             font.pixelSize: 18
