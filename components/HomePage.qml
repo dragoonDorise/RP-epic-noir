@@ -1,5 +1,6 @@
 import QtQuick 2.12
-
+ 
+    
 
   Item{
     id: homepage  
@@ -7,6 +8,14 @@ import QtQuick 2.12
     HeaderHome{
       id: header
     }
+    
+Text {   
+  id: debuglayer
+  anchors.left: parent.left
+  anchors.top: parent.top
+     text:root.width+"x"+root.height+"-"+aspectRatio
+     color:"red"
+}       
     
     Rectangle {
         id: main

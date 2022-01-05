@@ -25,7 +25,7 @@ Rectangle {
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.topMargin: 0
-        width:  vw(25.7)
+        width:  vw(25)
         height: parent.height  
         color:"transparent"    
         anchors.leftMargin: 20             
@@ -78,20 +78,20 @@ Rectangle {
           
             Rectangle{
                 id: header_list__search_button
-                height:16
-                width:16
+                height:20*screenRatio
+                width:20*screenRatio
                 color:"#444"
-                radius:20
+                radius:20*screenRatio
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.right: parent.right 
                 anchors.rightMargin: 6 
                 visible: currentPage === 'ListPage' ? 1 : 0            
                 Text{
-                     text:"Y"
+                     text:"R2"
                      color:"white"                    
                      anchors.verticalCenter: parent.verticalCenter
                      anchors.horizontalCenter: parent.horizontalCenter
-                     font.pixelSize:8
+                     font.pixelSize: 10*screenRatio
                 }
             }              
           

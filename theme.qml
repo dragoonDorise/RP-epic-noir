@@ -43,7 +43,7 @@ FocusScope {
   
   FontLoader { id: titleFont; source: "assets/fonts/BebasNeue.otf" }
   FontLoader { id: bodyFont; source: "assets/fonts/Acre.otf" }
-  property var currentPage : 'ListPage';
+  property var currentPage : 'HomePage';
   
   property var themeLight : {
       "background": "#000",
@@ -64,7 +64,7 @@ FocusScope {
     "system_icon":"allsoft_icon_dark.svg",    
     "title":"white"    
   }
-  
+    
   property var systemDescription:{
     "all-allgames": "Access and quickly play every single game across the entire library",
     "all-favorites": "Access and quickly play your favorite games across the entire library",  
@@ -154,22 +154,29 @@ property var systemDetail:{
   
 
   function calculateAspectRatio(screenProportion){
-  switch(screenProportion){
-    case screenProportion < 1.34:
-      return 43;
-      break;
-    case screenProportion < 1.666666666666668:
-      return 53;
-      break;
-    default:
-      return 169
-      break;
+      if (screenProportion < 1.34){
+        return 43;
+      }
+      if (screenProportion < 1.666666666666668){
+        return 53;
+      }
+        return 169;    
   }
-    
-    
-  }
-  
   property var aspectRatio : calculateAspectRatio(screenProportion)
+  
+// To do, typography calculator  
+//function typography(heading){
+// switch(heading){
+//   case 'h1'
+//     aspectRatio = 43 ? return 40 : return 40
+//     break;
+//   default:
+//     return 169
+//     break;
+// }
+//  
+  
+  
   
  //  : root.width / root.height < 1.34 ? 43 : 169
 //
@@ -305,10 +312,12 @@ function changeMusic(){
   if (api.memory.get('musicArray') == undefined ){
     api.memory.set('musicArray',0);
   }
+  stopMusic(music[api.memory.get('musicArray')])
   api.memory.set('musicArray',api.memory.get('musicArray')+1);
   if (api.memory.get('musicArray') == 12 ){
     api.memory.set('musicArray',0);
   }
+  
   playMusic(music[api.memory.get('musicArray')])
 }
 
@@ -318,7 +327,7 @@ function homeMusic(){
   playMusic(music[api.memory.get('musicArray')])
 }
   
-function playMusic(name){
+function playMusic(name){  
   switch(name){
     case "Arcadia":
       arcadiaMusic.play()
@@ -362,6 +371,55 @@ function playMusic(name){
       
     default:
       laundromatMusic.play()      
+      break;
+  };
+}  
+
+// TODO Do this the right way, yikes!  
+function stopMusic(name){  
+  switch(name){
+    case "Arcadia":
+      arcadiaMusic.stop()
+      break;
+    case "Diotic":
+      dioticMusic.stop()
+      break;
+    case "Dreamlines":
+      dreamlinesMusic.stop()
+      break;
+    case "Nightwanderer":
+      nightwandererMusic.stop()
+      break;
+    case "Outlander":
+      outlanderMusic.stop()
+      break;
+    case "Tapes":
+      tapesMusic.stop()
+      break;
+    case "Vice":
+      viceMusic.stop()
+      break;
+    case "Laundromat":
+      laundromatMusic.stop()
+      break;
+    case "Pawnshop":
+      pawnshopMusic.stop()
+      break;
+    case "Playertwo":
+      playertwoMusic.stop()
+      break;
+    case "VYBES":
+      vybesMusic.stop()
+      break;
+    case "Virtualfuture":
+      virtualfutureMusic.stop()
+      break;
+    case "Silence":
+      virtualfutureMusic.stop()
+      break;
+      
+    default:
+      laundromatMusic.stop()      
       break;
   };
 }  
