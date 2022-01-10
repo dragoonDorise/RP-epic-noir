@@ -232,7 +232,7 @@ import QtQuick 2.12
           Image {
               id: game_screenshot
               width: parent.width    
-              height:parent.height*0.6
+              height:currentCollection.games.get(gameView.currentIndex).description ? parent.height*0.6 :  parent.height
               fillMode: Image.PreserveAspectFit
               anchors.top:parent.top
               anchors.right: parent.right

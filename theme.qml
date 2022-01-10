@@ -157,9 +157,9 @@ property var systemDetail:{
       if (screenProportion < 1.34){
         return 43;
       }
-      if (screenProportion < 1.666666666666668){
-        return 53;
-      }
+     // if (screenProportion < 1.666666666666668){
+     //   return 53;
+     // }
         return 169;    
   }
   property var aspectRatio : calculateAspectRatio(screenProportion)
