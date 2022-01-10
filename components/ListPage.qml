@@ -12,7 +12,7 @@ import QtQuick 2.12
           // gameView.model = currentCollection.games
           // gameViewStyle = 'standard'
           searchValue=''
-          // header__search_input.focus = false
+          // header_list__search_input.focus = false
           // gameView.focus = true 
          // header.height=0 
          // header_list__search_input.text='Search...'
@@ -95,8 +95,8 @@ import QtQuick 2.12
                             }else{
                                header.height=50
                                searchValue = ''
-                               header__search_input.clear()            
-                               header__search_input.focus = true
+                               header_list__search_input.clear()            
+                               header_list__search_input.focus = true
                                
                             }
                             
@@ -141,8 +141,8 @@ import QtQuick 2.12
                             event.accepted = true;
                             goBackSound.play()
                             searchValue = ''
-                            header__search_input.clear()            
-                            header__search_input.focus = true
+                            header_list__search_input.clear()            
+                            header_list__search_input.focus = true
                             
                             return;
                         }  
