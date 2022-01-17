@@ -27,7 +27,8 @@ import QtQuick 2.12
               width: buttonSize
               height:parent.height
               color:"transparent"
-              anchors.rightMargin: aspectRatio === 43 ? 0 : 20
+              anchors.rightMargin: aspectRatio === 43 ? 0 : 40
+              
               Rectangle{
                 id: footer__full_button_B
                 anchors.right: parent.right
