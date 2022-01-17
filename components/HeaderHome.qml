@@ -15,7 +15,7 @@ import QtQuick 2.12
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.topMargin: 12
-        anchors.rightMargin: aspectRatio === 169 ? 24 : 0
+        anchors.rightMargin: aspectRatio === 169 ? 24 : 16
         
         Text{
             id: header__battery_number
