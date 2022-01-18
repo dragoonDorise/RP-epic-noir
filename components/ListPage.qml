@@ -159,7 +159,7 @@ import QtQuick 2.12
                           
                           Text {
                             id: game_title_selected
-                            text: modelData.title     
+                            text: modelData.title == "Termux" ? "Roms Scraper" : modelData.title     
                             anchors.left: parent.left
                             anchors.leftMargin: 12
                             color: "white"
@@ -174,7 +174,7 @@ import QtQuick 2.12
                           
                           Text {
                             id: game_title
-                              text: modelData.title                
+                              text: modelData.title == "Termux" ? "Roms Scraper" : modelData.title     
                               anchors.left: parent.left
                               anchors.leftMargin: 12
                               color: "#434643"
@@ -237,8 +237,13 @@ import QtQuick 2.12
                           return currentCollection.games.get(gameView.currentIndex).assets.boxFront
                       }
                       return ""
+                  }else{
+                    if (modelData.assets.screenshots[0]) {
+                        return modelData.assets.screenshots[0]
+                    }
+                    return ""
                   }
-                  return ""
+                 
               }                                                               
           }      
           
