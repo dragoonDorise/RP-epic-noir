@@ -41,14 +41,14 @@ import QtQuick 2.12
          }        
           Rectangle {
               id: header__battery_icon_fill
-              anchors.leftMargin: 2
-              anchors.topMargin: 3
+              anchors.leftMargin: 1
+              anchors.topMargin: aspectRatio === 169 ? 3 : 1
               anchors.top: header__battery_icon.top
               anchors.left: header__battery_icon.left
               color: percent > 21 ? "#ffffff" : "#fee024"
               radius: 2
-              width: aspectRatio === 169 ? Math.floor(percent*0.4) : Math.floor(percent*0.4)
-              height: aspectRatio === 169 ? 20 : 10
+              width: aspectRatio === 169 ? Math.floor(percent*0.4) : Math.floor(percent*0.24)
+              height: aspectRatio === 169 ? 20 : 13
           }
          
       }
