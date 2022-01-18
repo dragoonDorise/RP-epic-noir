@@ -22,20 +22,20 @@ import QtQuick 2.12
             text: Math.floor(api.device.batteryPercent*100)+" %"    
             anchors { top: parent.top }   
             color: theme.title
-            font.pixelSize: 18
+            font.pixelSize: aspectRatio === 169 ? 24 : 18
             visible: headerHeightCorrection === 0 ? 1 : 0;
         }      
         
         Image {
               id: header__battery_icon
-              height: 22   
-              width: 30
+              width: aspectRatio === 169 ? 32 : 30
               fillMode: Image.PreserveAspectFit
               source: "../assets/icons/battery.png"
               asynchronous: true      
               anchors { top: parent.top }   
               anchors.left: header__battery_number.right
               anchors.leftMargin: 6
+              anchors.topMargin: aspectRatio === 169 ? 6 : 3
               z:3999
               
          }        
@@ -49,7 +49,7 @@ import QtQuick 2.12
           anchors.topMargin: 12
           anchors.rightMargin: 24
           color: theme.title
-          font.pixelSize: 18
+          font.pixelSize: aspectRatio === 169 ? 24 : 18
           visible: headerHeightCorrection === 0 ? 1 : 0;
       }      
       
@@ -62,7 +62,7 @@ import QtQuick 2.12
           anchors.topMargin: 12
           anchors.rightMargin: 24
           color: theme.title
-          font.pixelSize: 18
+          font.pixelSize: aspectRatio === 169 ? 24 : 18
           visible: headerHeightCorrection === 0 ? 1 : 0;
       }      
       

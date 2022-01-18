@@ -84,6 +84,11 @@ import QtQuick 2.12
                             currentGame.launch();                            
                             return;
                         }  
+                        //We reset collection when going home
+                        if (api.keys.isCancel(event)) {
+                            api.memory.unset('currentCollectionIndex')                              
+                            return;
+                        }                         
                         
                         //toggleItemsRow     
                         if (api.keys.isFilters(event)) {

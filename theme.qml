@@ -16,8 +16,15 @@ FocusScope {
   
   Component.onCompleted: homeMusic()
   
-  //System index
-  property var currentCollectionIndex : 0
+//System index from memory so we can remember the last system we were in
+ property var currentCollectionIndexMemory : api.memory.get('currentCollectionIndex');
+ property var currentCollectionIndex: {
+     if(currentCollectionIndexMemory)
+    return currentCollectionIndexMemory;
+    if(!currentCollectionIndexMemory)
+    return 0
+ }
+
   property var currentCollection: allCollections[currentCollectionIndex]
   
   //Games index
@@ -43,7 +50,9 @@ FocusScope {
   
   FontLoader { id: titleFont; source: "assets/fonts/BebasNeue.otf" }
   FontLoader { id: bodyFont; source: "assets/fonts/Acre.otf" }
-  property var currentPage : 'HomePage';
+  
+// We show the game list if we have stored the collection ID
+property var currentPage : currentCollectionIndexMemory ? 'ListPage' : 'HomePage';
   
   property var themeLight : {
       "background": "#000",
