@@ -31,9 +31,9 @@ import QtQuick 2.12
         //color: mainCSS.background
         color: "transparent"
         width: wrapperCSS.width
-        height: mainCSS.height-104
+        height: mainCSS.height-header_list.height
         anchors.top: parent.top
-        anchors.topMargin: headerCSS.height+60
+        anchors.topMargin: header_list.height
         Rectangle {
             id: games
             color: "transparent"
@@ -241,7 +241,7 @@ import QtQuick 2.12
               fillMode: Image.PreserveAspectFit
               anchors.top:parent.top
               anchors.right: parent.right
-              anchors.topMargin: 0
+              anchors.topMargin: 10
               anchors.rightMargin: 20          
 
               asynchronous: true    

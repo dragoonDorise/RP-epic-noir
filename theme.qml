@@ -223,7 +223,7 @@ property var systemDetail:{
   
   property var footerCSS : {
       "width": wrapperCSS.width,
-      "height": 49*screenRatio,
+      "height": aspectRatio === 169 ? 100 : 40,
       "background": "transparent",
       
   }    

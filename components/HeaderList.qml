@@ -3,7 +3,7 @@ Rectangle {
     id: header_list
     color: headerCSS.background
     width: headerCSS.width
-    height: 82
+    height: aspectRatio === 169 ? 120 : 82
     anchors.top: parent.top
     // visible:false
     clip:true
@@ -36,7 +36,7 @@ Rectangle {
           color: theme.title
           font.family: bodyFont.name
           font.bold:true
-          font.pixelSize: 24
+          font.pixelSize: aspectRatio === 169 ? 44 : 24
           anchors.verticalCenter: parent.verticalCenter
           width:vpx(300)
           elide: Text.ElideRight       
@@ -99,13 +99,11 @@ Rectangle {
                   id:header_list__search_input
                   text:"Search.."
                   font.family: bodyFont.name
-                  font.pixelSize: 24
+                  font.pixelSize: aspectRatio === 169 ? 32 : 24
                   width:parent.width
-                  height: parent.height                   
-                  anchors.top: parent.top
                   anchors.left: parent.left
                   anchors.leftMargin: 6 
-                  anchors.topMargin: 0
+                  anchors.verticalCenter: parent.verticalCenter
                   color: theme.text
                   onTextEdited: {
                       gameView.currentIndex = 0 //We move the highlight to the first item
@@ -152,7 +150,7 @@ Rectangle {
       //Bateria
       Rectangle{
         id: header_list__battery
-        width:120
+        width:aspectRatio === 169 ? 200 : 120
         height:parent.height
         color:"transparent"
         anchors.right: parent.right
@@ -173,15 +171,14 @@ Rectangle {
                       text: Math.floor(api.device.batteryPercent*100)+" %"        
                       //anchors { top: parent.top }   
                       color: theme.title
-                      font.pixelSize: 18
+                      font.pixelSize: aspectRatio === 169 ? 32 : 18
                       visible: headerHeightCorrection === 0 ? 1 : 0;
                       anchors.verticalCenter: parent.verticalCenter
                     }      
                     
                     Image {
-                        id: header_list__battery_icon
-                        height: 22   
-                        width: 30
+                        id: header_list__battery_icon                        
+                        width: aspectRatio === 169 ? 50 : 30
                         fillMode: Image.PreserveAspectFit
                         source: "../assets/icons/battery.png"
                         asynchronous: true      

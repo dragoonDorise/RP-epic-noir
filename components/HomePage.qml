@@ -193,10 +193,10 @@ import QtQuick 2.12
                                  height: parent.height      
                              //    width: parent.width   
                                 // anchors: parent.right   
-                                 fillMode: Image.PreserveAspectFit
+                                 fillMode: aspectRatio === 169 ? Image.PreserveAspectCrop : Image.PreserveAspectFit
                                  source: "../assets/posters/"+modelData.shortName+".jpg"
                                  asynchronous: true      
-                                 anchors { right : parent.right; top: parent.top }    
+                                 anchors { right : parent.right; top: parent.top;  bottom: parent.bottom }    
                                  
                                }                                                     
                                
