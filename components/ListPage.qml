@@ -238,8 +238,8 @@ import QtQuick 2.12
                       }
                       return ""
                   }else{
-                    if (modelData.assets.screenshots[0]) {
-                        return modelData.assets.screenshots[0]
+                    if (modelData.assets.logo) {
+                        return modelData.assets.logo
                     }
                     return ""
                   }
