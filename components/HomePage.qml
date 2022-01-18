@@ -107,7 +107,7 @@ import QtQuick 2.12
                                     anchors.left: parent.left
                                     anchors.topMargin: 86;  
                                     color: "#646363"
-                                    font.pixelSize: aspectRatio === 169 ? vpx(6*screenRatio) :  vpx(18*screenRatio) 
+                                    font.pixelSize: aspectRatio === 169 ? vpx(32) :  vpx(18*screenRatio) 
                                     font.family: bodyFont.name
                                     verticalAlignment: Text.AlignTop
                                     elide: Text.ElideRight
