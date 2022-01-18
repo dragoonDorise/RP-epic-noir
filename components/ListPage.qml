@@ -74,7 +74,10 @@ import QtQuick 2.12
                       id: delegateContainer
                       property bool selected: delegateContainer.ListView.isCurrentItem
                       property var gameViewStyle : 'standard'
-                      
+                      //Random Game
+                      property var maximum: currentCollection.games.count
+                      property var minimum: 0
+                      property var randomGame:  Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
                       Keys.onPressed: {
                         //Launch game
                         if (api.keys.isAccept(event)) {
@@ -90,32 +93,15 @@ import QtQuick 2.12
                             return;
                         }                         
                         
-                        //toggleItemsRow     
-                        if (api.keys.isFilters(event)) {
-                            event.accepted = true;
-                           
-                            
-                            if (header.height == 50){
-                              header.height=0  
-                            }else{
-                               header.height=50
-                               searchValue = ''
-                               header__search_input.clear()            
-                               header__search_input.focus = true
-                               
-                            }
-                            
-                            toggleSound.play()
-                            //Show only current favs, not working right now...
-                            // if ( gameViewStyle === 'standard'){
-                            //   gameView.model = currentFavorites
-                            //   gameViewStyle = 'favs'
-                            //   return;
-                            // }else{
-                            //   gameView.model = currentCollection.games
-                            //   gameViewStyle = 'standard'
-                            // }
-                            
+                        //Random Game     
+                        if (api.keys.isPageUp(event)) {
+                          event.accepted = true;
+                          
+                          currentGameIndex = randomGame
+                          launchSound.play()
+                          currentGame.launch();                            
+                          
+                          return;
                         }  
                         //Favorite
                         if (api.keys.isDetails(event)) {
