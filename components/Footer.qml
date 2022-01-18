@@ -144,7 +144,7 @@ import QtQuick 2.12
               }
               
               Text{
-                 text:currentPage === "Music"
+                 text: "Music"
                  color: theme.text                       
                  anchors.verticalCenter: parent.verticalCenter
                  anchors.left: footer__button_Y.right
