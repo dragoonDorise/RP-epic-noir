@@ -8,6 +8,7 @@ import QtQuick 2.12
       anchors.top: parent.top      
       z:99
       visible: currentPage === 'HomePage' ? 1 : 0 ;
+      property var percent: api.device.batteryPercent*100
       Rectangle{
         id: header__battery
         width:84
@@ -19,7 +20,7 @@ import QtQuick 2.12
         
         Text{
             id: header__battery_number
-            text: Math.floor(api.device.batteryPercent*100)+" %"    
+            text: Math.floor(percent)+" %"    
             anchors { top: parent.top }   
             color: theme.title
             font.pixelSize: aspectRatio === 169 ? 32 : 18
@@ -36,9 +37,20 @@ import QtQuick 2.12
               anchors.left: header__battery_number.right
               anchors.leftMargin: 6
               anchors.topMargin: aspectRatio === 169 ? 6 : 3
-              z:3999
-              
+              z:3999              
          }        
+          Rectangle {
+              id: header__battery_icon_fill
+              anchors.leftMargin: 2
+              anchors.topMargin: 3
+              anchors.top: header__battery_icon.top
+              anchors.left: header__battery_icon.left
+              color: percent > 21 ? "#ffffff" : "#fee024"
+              radius: 2
+              width: aspectRatio === 169 ? Math.floor(percent*0.4) : Math.floor(percent*0.4)
+              height: aspectRatio === 169 ? 20 : 10
+          }
+         
       }
       
       Text{

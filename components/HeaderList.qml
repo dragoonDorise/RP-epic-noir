@@ -7,7 +7,7 @@ Rectangle {
     anchors.top: parent.top
     // visible:false
     clip:true
-    
+    property var percent:  api.device.batteryPercent*100
 
     Rectangle{
       id: header_list__inner
@@ -25,7 +25,7 @@ Rectangle {
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.topMargin: 0
-        width:  vw(25)
+        width:  vw(30)
         height: parent.height  
         color:"transparent"    
         anchors.leftMargin: 20             
@@ -38,7 +38,7 @@ Rectangle {
           font.bold:true
           font.pixelSize: aspectRatio === 169 ? 44 : 24
           anchors.verticalCenter: parent.verticalCenter
-          width:vpx(300)
+          width:parent.width
           elide: Text.ElideRight       
         }
         Rectangle{
@@ -186,9 +186,20 @@ Rectangle {
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.left: header_list__battery_number.right
                         anchors.leftMargin: 6
-                        z:3999
-                        
-                     }                      
+                        z:3999                        
+                     }        
+                     Rectangle {
+                           id: header_list__battery_icon_fill
+                           anchors.leftMargin: aspectRatio === 169 ? 2 : 1
+                           anchors.topMargin: aspectRatio === 169 ? 3 : 1
+                           anchors.top: header_list__battery_icon.top
+                           anchors.left: header_list__battery_icon.left
+                           color: percent > 21 ? "#ffffff" : "#fee024"
+                           radius: 2
+                        width: aspectRatio === 169 ? Math.floor(percent*0.4) : Math.floor(percent*0.24)
+                        height: aspectRatio === 169 ? 20 : 13
+                       }
+                                   
             }
   
         }
