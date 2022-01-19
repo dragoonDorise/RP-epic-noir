@@ -61,6 +61,8 @@ In this list you can see all the games in the System selected in the Home Screen
 <img src="https://github.com/dragoonDorise/RP-epic-noir/blob/main/screenshots/search.jpg?raw=true">
 Just press R2 Twice, enter the text you want to search, press the hide keyboard key in the Android virtual Keyboard and then press Down in the Dpad to go back to the Game list and select the game you want. **Don't press the Enter key, it wont work**
 
+If want to help me buy more systems so I can test my themes and scripts please consider a donation on [Patreon](https://www.patreon.com/dragoonDorise)
+
 ## Thanks To
 
 - c64-dev for creating [Epic Noir](https://github.com/c64-dev/es-theme-epicnoir)
