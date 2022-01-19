@@ -223,7 +223,7 @@ import QtQuick 2.12
           Image {
               id: game_screenshot
               width: parent.width    
-              height:currentCollection.games.get(gameView.currentIndex).description ? parent.height*0.6 :  parent.height*0.8
+              height:currentCollection.shortName == "android" ? parent.height*0.2 : currentCollection.games.get(gameView.currentIndex).description ? parent.height*0.6 : parent.height*0.8
               fillMode: Image.PreserveAspectFit
               anchors.top:parent.top
               anchors.right: parent.right
