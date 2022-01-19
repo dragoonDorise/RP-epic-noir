@@ -232,12 +232,6 @@ import QtQuick 2.12
 
               asynchronous: true    
               source: {
-                  if (currentCollection.shortName == "android") {
-                      if (modelData.assets.boxFront) {
-                          return modelData.assets.boxFront
-                      }
-                      return ""
-                 }
                  if (currentCollection.games.get(gameView.currentIndex).assets.boxFront) {
                      return currentCollection.games.get(gameView.currentIndex).assets.boxFront
                  }
